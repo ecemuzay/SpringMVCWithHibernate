@@ -24,7 +24,7 @@
 		<div class="navbar-header">
 			<a class="navbar-brand" href="${urlHome}"><spring:message code="label.umut"/> </a>
 
-			<span>Dear <strong>${loggedinuser}</strong></span>
+			<span class="navbar-brand">Dear <strong>${loggedinuser}</strong></span>
 
 		</div>
 		<div id="navbar">

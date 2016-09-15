@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -30,16 +29,16 @@ public class BaseController {
     @Autowired
     AuthenticationTrustResolver authenticationTrustResolver;
 
-    @ModelAttribute("loggedinuser")
-    public String initializeProfiles() {
-        return getPrincipal();
-    }
+//    @ModelAttribute("loggedinuser")
+//    public String initializeProfiles() {
+//        return getPrincipal();
+//    }
 
     @RequestMapping(value = {"/","/home"}, method = RequestMethod.GET)
     public String index(Model model) {
 
         logger.debug("index()");
-
+        model.addAttribute("loggedinuser",getPrincipal());
         return "welcome";
     }
 
@@ -68,7 +67,7 @@ public class BaseController {
     }
 
     private String getPrincipal(){
-        String userName = "a";
+        String userName = "";
        if(SecurityContextHolder.getContext().getAuthentication()!=null) {
            Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
            if (principal != null) {

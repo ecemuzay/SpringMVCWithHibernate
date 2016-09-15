@@ -20,7 +20,7 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
 
         //save login time
         //redirect page
-        setDefaultTargetUrl("/users/list");
+        setDefaultTargetUrl("/");
         super.onAuthenticationSuccess(request, response, authentication);
     }
 }
