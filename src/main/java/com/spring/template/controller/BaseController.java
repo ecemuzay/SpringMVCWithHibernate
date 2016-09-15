@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 @SessionAttributes("loggedinuser")
 public class BaseController {
 
-    private final Logger logger = LoggerFactory.getLogger(OrderController.class);
+    private final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
     @Autowired
     AuthenticationTrustResolver authenticationTrustResolver;

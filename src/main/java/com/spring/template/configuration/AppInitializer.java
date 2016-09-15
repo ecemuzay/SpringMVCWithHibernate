@@ -4,6 +4,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import javax.servlet.FilterRegistration;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -19,6 +20,14 @@ public class AppInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
         ctx.register(MvcConfiguration.class);
         ctx.setServletContext(container);
+
+
+
+        FilterRegistration.Dynamic characterEncodingFilter = container.addFilter("CharacterEncodingFilter", new CharsetFilter());
+        characterEncodingFilter.setAsyncSupported(true);
+        characterEncodingFilter.addMappingForUrlPatterns(null, false, "/*");
+
+
 
         ServletRegistration.Dynamic servlet = container.addServlet(
                 "dispatcher", new DispatcherServlet(ctx));
