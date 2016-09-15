@@ -2,10 +2,13 @@ package com.spring.template.model;
 
 
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -33,6 +36,7 @@ public class Order  extends BaseEntity implements Serializable{
         return (this.getId() == null);
     }
 
+    @NotEmpty
     @Column(name = "name")
     public String getName() {
         return name;
@@ -42,6 +46,7 @@ public class Order  extends BaseEntity implements Serializable{
         this.name = name;
     }
 
+    @NotNull
     @Column(name = "orderNumber")
     public Integer getOrderNumber() {
         return orderNumber;

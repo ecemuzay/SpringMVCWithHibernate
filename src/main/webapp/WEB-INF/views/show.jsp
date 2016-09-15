@@ -1,4 +1,5 @@
-<%@ page session="false"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+		 pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -20,21 +21,21 @@
 		</div>
 	</c:if>
 
-	<h1>Order Detail</h1>
+	<h1><spring:message code="label.orderDetail"/></h1>
 	<br />
 
 	<div class="row">
-		<label class="col-sm-2">ID</label>
+		<label class="col-sm-2"><spring:message code="label.id"/></label>
 		<div class="col-sm-10">${order.id}</div>
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Name</label>
+		<label class="col-sm-2"><spring:message code="label.name"/></label>
 		<div class="col-sm-10">${order.name}</div>
 	</div>
 
 	<div class="row">
-		<label class="col-sm-2">Order Number</label>
+		<label class="col-sm-2"><spring:message code="label.orderNumber"/></label>
 		<div class="col-sm-10">${order.orderNumber}</div>
 	</div>
 
@@ -47,9 +48,9 @@
 		<table class="table table-striped">
 			<thead>
 			<tr>
-				<th>#ID</th>
-				<th>Name</th>
-				<th>Action</th>
+				<th><spring:message code="label.id"/></th>
+				<th><spring:message code="label.name"/> </th>
+				<th><spring:message code="label.action"/></th>
 			</tr>
 			</thead>
 

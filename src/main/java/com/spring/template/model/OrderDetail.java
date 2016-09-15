@@ -1,6 +1,6 @@
 package com.spring.template.model;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,6 +29,8 @@ public class OrderDetail extends BaseEntity implements Serializable{
     public boolean isNew() {
         return (this.getId() == null);
     }
+
+    @NotEmpty
     @Column(name = "name")
     public String getName() {
         return name;
@@ -38,6 +40,7 @@ public class OrderDetail extends BaseEntity implements Serializable{
         this.name = name;
     }
 
+    @NotEmpty
     @ManyToOne(targetEntity = Order.class, fetch = FetchType.LAZY)
     @JoinColumn(name = "orderId", referencedColumnName = "id", updatable = true, insertable = true)
     public Order getOrder() {
